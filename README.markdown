@@ -17,15 +17,16 @@ Create a file somewhere that will call the `uptime_monitor.py` file, like your h
     import sys
     
     # Add path to the uptime_monitor.py file so we can import it.
-    sys.path.append(os.path.abspath('~/uptime_monitor/'))
+    sys.path.append('/home/user/uptime_monitor/')
     
-    from uptime_monitor import monitor_uptime
+    import uptime_monitor
     
     # Check if the url is up.
-    if not monitor_uptime("http://www.google.com/", 
+    if not uptime_monitor.monitor_uptime("http://www.google.com/", 
                 ["to_address@example.com", "3334445555@txt.att.net"], 
                 "example@gmail.com", 
                 "my_gmail_password"):
+        pass
         # Do things here like restart the server, etc...
 
 ... where the first parameter is the url to check, the second is the list of recipient addresses to notify in case the site is down and the last two parameters are your GMail username and password respectively.
