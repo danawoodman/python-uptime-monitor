@@ -148,8 +148,8 @@ def monitor_uptime(url, recipients=None, gmail_user=None, gmail_pass=None):
                 mail(gmail_user, gmail_pass, to_address, subject, msg_text, msg_html)
             color_print("\nNotification sent!\n", 'green')
             
-            # Return False so that we can do something if the site is down.
-            return False
+        # Return False so that we can do something if the site is down.
+        return False
     
     # If the status_code is 200, then the site is up
     color_print("\nSite is online (status 200)!\n", 'green')
