@@ -119,9 +119,9 @@ def monitor_uptime(url, recipients=None, gmail_user=None, gmail_pass=None):
     full_url = site.geturl()
     clean_url = site.netloc + site.path
     
-    # If the request was anything but a 200 code (meaning the site is up), 
+    # If the request was anything but a 200/302 code (meaning the site is up), 
     # log and report the downtime.
-    if status_code != 200:
+    if status_code != (200 || 302):
         
         color_print("\nSite is down with a %s error code\n" % status_code, 'red')
         
