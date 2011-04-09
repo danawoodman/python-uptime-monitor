@@ -121,7 +121,7 @@ def monitor_uptime(url, recipients=None, gmail_user=None, gmail_pass=None):
     
     # If the request was anything but a 200/302 code (meaning the site is up), 
     # log and report the downtime.
-    if status_code != (200 || 302):
+    if status_code != (200 or 302):
         
         color_print("\nSite is down with a %s error code\n" % status_code, 'red')
         
