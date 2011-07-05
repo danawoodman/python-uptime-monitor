@@ -64,10 +64,12 @@ password (gmail_pw) to send an email!"""
     msg['To'] = to
     msg['Subject'] = subject
     
+    # If there is an HTML message (e.g. text/html), attach that to the email.
     if html:
         msg.attach(MIMEText(html, 'html'))
-        
-    msg.attach(MIMEText(text, 'text'))
+    
+    # Attach the text/plain message to the email.
+    msg.attach(MIMEText(text, 'plain'))
     
     # Attach the file, if given.
     if attach:
