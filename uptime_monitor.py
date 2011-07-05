@@ -131,15 +131,8 @@ def monitor_uptime(url, recipients=None, gmail_user=None, gmail_pass=None):
         if recipients and gmail_user and gmail_pass:
             
             # Construct the subject and message.
-            subject = "%(site)s is down!!! (code %(code)s)" % {
-                'site': clean_url,
-                'code': status_code,
-            }
+            subject = "Server is down!"
             msg_text = """%(site)s is down with status code %(code)s!""" % {
-                'site': full_url,
-                'code': status_code,
-            }
-            msg_html = """<p><strong>%(site)s is down status code %(code)s!</strong></p>""" % {
                 'site': full_url,
                 'code': status_code,
             }
@@ -147,7 +140,7 @@ def monitor_uptime(url, recipients=None, gmail_user=None, gmail_pass=None):
             # Send the message to all the recipients.
             recipients = recipients if not isinstance(recipients, basestring) else [recipients]
             for to_address in recipients:
-                mail(gmail_user, gmail_pass, to_address, subject, msg_text, msg_html)
+                mail(gmail_user, gmail_pass, to_address, subject, msg_text)
             color_print("\nNotification sent!\n", 'green')
             
         # Return False so that we can do something if the site is down.
